@@ -1,4 +1,6 @@
-import React, { useState, useCallback, FormEvent } from 'react';
+import React, { useState, useCallback, FormEvent, useEffect } from 'react';
+import { AiFillStar } from 'react-icons/ai';
+import { useHistory, useLocation } from 'react-router-dom';
 import ApiConfig from '../../config/movieApiConfig';
 import MovieCard from '../../components/MovieCard';
 import MovieInterface from '../../interfaces/IMovieInterface';
@@ -6,9 +8,18 @@ import MovieInterface from '../../interfaces/IMovieInterface';
 import { Container, CardList } from './styles';
 
 const Home: React.FC = () => {
+  const location = useLocation();
+  const history = useHistory();
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState<MovieInterface[]>([]);
   const [bookmarks, setBookmarks] = useState<MovieInterface[]>([]);
+
+  useEffect(() => {
+    const { bookmarks: savedBookmarks } = location.state as any;
+    if (savedBookmarks) {
+      setBookmarks(savedBookmarks);
+    }
+  }, [location.state]);
 
   const handleBookmark = useCallback(
     (id: number) => {
@@ -26,12 +37,14 @@ const Home: React.FC = () => {
         updatedBookmarks.push({ ...movies[movieIndex], bookmarked: true });
       }
 
-      console.log('bookmark movie');
-      console.log(updatedBookmarks);
       setBookmarks(updatedBookmarks);
     },
     [movies, bookmarks]
   );
+
+  const handleNavigateToBookmarks = useCallback(() => {
+    history.push('/bookmarks', { movies: bookmarks });
+  }, [history, bookmarks]);
 
   const searchMovies = useCallback(
     async (event: FormEvent) => {
@@ -58,13 +71,20 @@ const Home: React.FC = () => {
         console.error(err);
       }
     },
-    [query]
+    [query, bookmarks]
   );
 
   return (
     <Container>
       <h1>React Typescript</h1>
       <h2>Movie Search</h2>
+
+      <button type="button" onClick={handleNavigateToBookmarks}>
+        <span>Bookmarks</span>
+        <span>
+          <AiFillStar size={15} />
+        </span>
+      </button>
       <form className="form" onSubmit={searchMovies}>
         <input
           className="input"
