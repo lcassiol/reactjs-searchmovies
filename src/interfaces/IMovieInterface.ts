@@ -5,4 +5,5 @@ export default interface IMovieInterface {
   release_date: string;
   vote_average: number;
   overview: string;
+  bookmarked: boolean;
 }

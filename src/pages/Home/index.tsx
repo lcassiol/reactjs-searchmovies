@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, FormEvent } from 'react';
+import React, { useState, useCallback, FormEvent } from 'react';
 import ApiConfig from '../../config/movieApiConfig';
 import MovieCard from '../../components/MovieCard';
 import MovieInterface from '../../interfaces/IMovieInterface';
@@ -8,6 +8,30 @@ import { Container, CardList } from './styles';
 const Home: React.FC = () => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState<MovieInterface[]>([]);
+  const [bookmarks, setBookmarks] = useState<MovieInterface[]>([]);
+
+  const handleBookmark = useCallback(
+    (id: number) => {
+      const updatedBookmarks = bookmarks;
+      const movieIndex = movies.findIndex((movie) => movie.id === id);
+      const bookmarkIndex = updatedBookmarks.findIndex(
+        (movie) => movie.id === id
+      );
+      if (bookmarkIndex >= 0) {
+        updatedBookmarks[bookmarkIndex] = {
+          ...bookmarks[bookmarkIndex],
+          bookmarked: !bookmarks[bookmarkIndex].bookmarked,
+        };
+      } else {
+        updatedBookmarks.push({ ...movies[movieIndex], bookmarked: true });
+      }
+
+      console.log('bookmark movie');
+      console.log(updatedBookmarks);
+      setBookmarks(updatedBookmarks);
+    },
+    [movies, bookmarks]
+  );
 
   const searchMovies = useCallback(
     async (event: FormEvent) => {
@@ -48,7 +72,11 @@ const Home: React.FC = () => {
       </form>
       <CardList>
         {movies.map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
+          <MovieCard
+            handleBookmark={handleBookmark}
+            movie={movie}
+            key={movie.id}
+          />
         ))}
       </CardList>
     </Container>

@@ -47,6 +47,7 @@ export const Container = styled.div`
       font-size: 1.4rem;
       cursor: pointer;
       transition: background-color 250ms;
+      outline: none;
     }
 
     button:hover {
