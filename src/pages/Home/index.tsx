@@ -12,16 +12,16 @@ const Home: React.FC = () => {
 
   const handleBookmark = useCallback(
     (id: number) => {
-      const updatedBookmarks = bookmarks;
+      let updatedBookmarks = bookmarks;
       const movieIndex = movies.findIndex((movie) => movie.id === id);
       const bookmarkIndex = updatedBookmarks.findIndex(
         (movie) => movie.id === id
       );
+
       if (bookmarkIndex >= 0) {
-        updatedBookmarks[bookmarkIndex] = {
-          ...bookmarks[bookmarkIndex],
-          bookmarked: !bookmarks[bookmarkIndex].bookmarked,
-        };
+        updatedBookmarks = updatedBookmarks.filter(
+          (bookmark) => bookmark.id !== id
+        );
       } else {
         updatedBookmarks.push({ ...movies[movieIndex], bookmarked: true });
       }
@@ -44,7 +44,16 @@ const Home: React.FC = () => {
       try {
         const res = await fetch(url);
         const data = await res.json();
-        setMovies(data.results);
+        const responseMovies: MovieInterface[] = data.results;
+        const markBookmarkedMovies = responseMovies.map((movie) => {
+          return {
+            ...movie,
+            bookmarked:
+              bookmarks.findIndex((bookmark) => bookmark.id === movie.id) >= 0,
+          };
+        });
+
+        setMovies(markBookmarkedMovies);
       } catch (err) {
         console.error(err);
       }
