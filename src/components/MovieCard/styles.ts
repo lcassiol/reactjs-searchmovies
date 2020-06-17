@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+export interface Props {
+  bookmarked: boolean;
+}
+
+export const Container = styled.div<Props>`
   display: flex;
   flex-direction: column;
 
@@ -14,12 +18,13 @@ export const Container = styled.div`
     align-self: flex-end;
 
     svg {
-      color: #999;
+      color: ${(props) => (props.bookmarked ? '#7159c1' : '#999')};
     }
 
     button {
       background: none;
       border: none;
+      outline: none;
       cursor: pointer;
     }
   }

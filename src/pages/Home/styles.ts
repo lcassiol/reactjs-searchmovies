@@ -32,6 +32,7 @@ export const Container = styled.div`
       font-size: 1.6rem;
       padding: 0.5rem 2rem;
       line-height: 2.8rem;
+      outline: none;
       border-radius: 20px;
       border: 1px solid #ddd;
       margin-bottom: 1rem;

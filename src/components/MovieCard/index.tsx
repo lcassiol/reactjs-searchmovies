@@ -1,5 +1,5 @@
-import React from 'react';
-import { AiOutlineStar } from 'react-icons/ai';
+import React, { useState } from 'react';
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import MovieInterface from '../../interfaces/IMovieInterface';
 
 import { Container } from './styles';
@@ -9,11 +9,13 @@ interface Props {
 }
 
 const MovieCard: React.FC<Props> = ({ movie }) => {
+  const [bookmarked, setBookmarked] = useState(false);
+
   return (
-    <Container>
+    <Container bookmarked={bookmarked}>
       <span>
-        <button type="button">
-          <AiOutlineStar size={38} />
+        <button type="button" onClick={() => setBookmarked(!bookmarked)}>
+          {bookmarked ? <AiFillStar size={38} /> : <AiOutlineStar size={38} />}
         </button>
       </span>
       <img
