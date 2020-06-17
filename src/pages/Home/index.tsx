@@ -15,8 +15,9 @@ const Home: React.FC = () => {
   const [bookmarks, setBookmarks] = useState<MovieInterface[]>([]);
 
   useEffect(() => {
-    const { bookmarks: savedBookmarks } = location.state as any;
-    if (savedBookmarks) {
+    const state = location.state as any;
+    if (state) {
+      const savedBookmarks = state.bookmarks;
       setBookmarks(savedBookmarks);
     }
   }, [location.state]);
