@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineStar } from 'react-icons/ai';
 import MovieInterface from '../../interfaces/IMovieInterface';
 
 import { Container } from './styles';
@@ -10,6 +11,11 @@ interface Props {
 const MovieCard: React.FC<Props> = ({ movie }) => {
   return (
     <Container>
+      <span>
+        <button type="button">
+          <AiOutlineStar size={38} />
+        </button>
+      </span>
       <img
         src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
         alt={`${movie.title} poster`}
