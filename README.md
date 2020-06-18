@@ -1,44 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+   ReactJS com Typescript - Search Movies App
+</h1>
 
-## Available Scripts
+Projeto que exibe as principais informações de um filme a partir de uma busca pelo nome do mesmo, sendo possivel exibir o titulo do filme, um poster, data de lançamento, e sua nota no imdb, para retorno dos dados foi utilizada a API do site https://www.themoviedb.org realizando o cadastro e retirando a apiKey. Outro ponto do sistema é que é possivel realizar bookmark nos filmes que o usuário tiver interesse sendo assim ao resultado da busca basta clicar na estrela que o filme vai ficar salvo como favorito, e ao navegar para a tela de favoritos vai encontrar uma listagem.
 
-In the project directory, you can run:
 
-### `yarn start`
+- Typescript
+- ReactJS
+- React-Router-Dom
+- Eslint
+- Prettier
+- React-icons
+- Styled-Components
+- React-Toastify
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Passos para rodar aplicação
 
-### `yarn test`
+- clonar projeto
+- criar uma conta no [The Movie Db](https://www.themoviedb.org) e pegar a key para realizar as requisições na sessão api
+- yarn ou npm install
+- yarn start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+### Pagina inicial
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Pagina inicial com resultado da busca
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Pagina inicial resultado por completo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Pagina favoritos
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pagina favoritos completo
