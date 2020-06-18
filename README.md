@@ -24,11 +24,26 @@ Projeto que exibe as principais informações de um filme a partir de uma busca 
 
 
 ### Pagina inicial
+<p align="center">
+  <img alt="inicial" width="800px" src="https://github.com/lcassiol/reactjs-searchmovies/blob/master/src/assets/screenshots/home.png?raw=true">
+</p>
 
 ### Pagina inicial com resultado da busca
+<p align="center">
+  <img alt="inicial-resultado-busca" width="800px" src="https://github.com/lcassiol/reactjs-searchmovies/blob/master/src/assets/screenshots/home-resultadobusca.png?raw=true">
+</p>
 
 ### Pagina inicial resultado por completo
+<p align="center">
+  <img alt="inicial-resultado-completo" width="800px" src="https://github.com/lcassiol/reactjs-searchmovies/blob/master/src/assets/screenshots/home-resultado-inteiro.png?raw=true">
+</p>
 
 ### Pagina favoritos
+<p align="center">
+  <img alt="bookmarks" width="800px" src="https://github.com/lcassiol/reactjs-searchmovies/blob/master/src/assets/screenshots/bookmark-page.png?raw=true">
+</p>
 
 ### Pagina favoritos completo
+<p align="center">
+  <img alt="inicial" width="800px" src="https://github.com/lcassiol/reactjs-searchmovies/blob/master/src/assets/screenshots/bookmark-full.png?raw=true">
+</p>
